@@ -1364,7 +1364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelName: Level2
-  nextLevelIndex: 0
+  nextLevelIndex: 1
 --- !u!1 &1160860038
 GameObject:
   m_ObjectHideFlags: 0

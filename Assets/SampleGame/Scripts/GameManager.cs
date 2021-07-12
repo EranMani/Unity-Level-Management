@@ -62,18 +62,60 @@ namespace SampleGame
             {
                 _isGameOver = true;
                 _goalEffect.PlayEffect();
-                LoadLevel(nextLevelName);
+                LoadNextLevel();
             }
         }
 
         private void LoadLevel(string levelName)
         {
-            SceneManager.LoadScene(levelName);
+            // Scene name validation
+            if (Application.CanStreamedLevelBeLoaded(levelName))
+            {
+                SceneManager.LoadScene(levelName);
+            }
+            else
+            {
+                Debug.LogWarning("GAME_MANAGER LoadLevel Error: invalid scene specified!");
+            }
         }
 
         private void LoadLevel(int levelIndex)
         {
-            SceneManager.LoadScene(levelIndex);
+            // Scene index validation
+            if (levelIndex >= 0 && levelIndex < SceneManager.sceneCountInBuildSettings)
+            {
+                SceneManager.LoadScene(levelIndex);
+            }
+            else
+            {
+                Debug.LogWarning("GAME_MANAGER LoadLevel Error: invalid scene specified!");
+            }
+            
+        }
+
+        private void ReloadLevel()
+        {
+            string currentScene = SceneManager.GetActiveScene().name;
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            SceneManager.LoadScene(currentSceneIndex);
+        }
+
+        private void LoadNextLevel()
+        {
+            //int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            //int nextSceneIndex = currentSceneIndex + 1;
+            //int totalScenesCount = SceneManager.sceneCountInBuildSettings;
+
+            //// Modulus operator:
+            //// 2 % 2 = 0
+            //// 0 % 2 = 0
+            //// 1 % 2 = 1
+            //nextSceneIndex = nextSceneIndex % totalScenesCount;
+
+            int nextSceneIndex = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
+
+            SceneManager.LoadScene(nextSceneIndex);
         }
 
         // check for the end game condition on each frame
