@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityStandardAssets.Characters.ThirdPerson;
 
 namespace SampleGame
@@ -18,6 +19,9 @@ namespace SampleGame
 
         private bool _isGameOver;
         public bool IsGameOver { get { return _isGameOver; } }
+
+        [SerializeField] private string nextLevelName;
+        [SerializeField] private int nextLevelIndex;
 
 
         // initialize references
@@ -58,7 +62,18 @@ namespace SampleGame
             {
                 _isGameOver = true;
                 _goalEffect.PlayEffect();
+                LoadLevel(nextLevelName);
             }
+        }
+
+        private void LoadLevel(string levelName)
+        {
+            SceneManager.LoadScene(levelName);
+        }
+
+        private void LoadLevel(int levelIndex)
+        {
+            SceneManager.LoadScene(levelIndex);
         }
 
         // check for the end game condition on each frame
