@@ -27,4 +27,12 @@
 	  
 * Arrangment 
 	 - Vertical layout group component
+	 
+* Buttons
+	- Each button can have a normal (or default) color
+	- Each button can change its color when highlighted
+	- Each button can change its color when pressed
+	- Each button has an onClick unity event assigned, which trigger something when the button is pressed. The onClick property allows to set  
+      up more methods to invoke when the button is clicked.	We can call these methods from any object in the current scene or project itself.
+		
 	  

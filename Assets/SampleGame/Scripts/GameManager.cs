@@ -93,7 +93,7 @@ namespace SampleGame
             
         }
 
-        private void ReloadLevel()
+        public void ReloadLevel()
         {
             string currentScene = SceneManager.GetActiveScene().name;
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -101,7 +101,7 @@ namespace SampleGame
             SceneManager.LoadScene(currentSceneIndex);
         }
 
-        private void LoadNextLevel()
+        public void LoadNextLevel()
         {
             //int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             //int nextSceneIndex = currentSceneIndex + 1;
@@ -121,7 +121,7 @@ namespace SampleGame
         // check for the end game condition on each frame
         private void Update()
         {
-            if (_objective != null & _objective.IsComplete)
+            if (_objective != null && _objective.IsComplete)
             {
                 EndLevel();
             }
