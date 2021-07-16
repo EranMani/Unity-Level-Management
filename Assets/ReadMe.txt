@@ -20,6 +20,7 @@
 	- Start by dividing the screen into header and body in order to arrange texts and buttons more effectively 
 	- The header area, which holds a text or logo image, will not be clickable and we need to block clicks and touches in this area
 	- The body area will hold the main buttons or UI's. This area must be interactable
+	- There will be always one menu availble at a time, so the main menu will be active and the rest will be turned off
 	
 * UI 
 	- Prevent UI from being interactable or be able to pass raycasts by creating a CANVAS GROUP component, attach it to the selected UI and remove
@@ -34,5 +35,8 @@
 	- Each button can change its color when pressed
 	- Each button has an onClick unity event assigned, which trigger something when the button is pressed. The onClick property allows to set  
       up more methods to invoke when the button is clicked.	We can call these methods from any object in the current scene or project itself.
-		
+
+* Switching menus
+	- One option is to use the unity events in onClick to create an event of set-active to activate or deactivate menus. This 
+	  option is not fit for scalable projects with great amount of screens
 	  
