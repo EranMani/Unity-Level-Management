@@ -17,6 +17,19 @@
 	  The stack always keeps track of where weve been at any time.
 	  If we hit the back button on the currently active menu, we pop off the top menu and then figure out which menu is revealed
 	  underneath, and then we enable whatever is left at the top of the stack.
+
+* Singleton Pattern
+	- The singleton pattern will provide global access to the single instnace of our class, and this will eliminate the calls for
+	  methods such as FindObjectOfType
+	- The singleton pattern will ensure there is only one instnace of the class in the scene. The singleton will be a class and will 
+	  have only one representative object in the game
+	- The most common way to implement a singleton is with static properties
+	- The instance of the singleton will be called using a property with a GET which points to the private instance of the manager
+	- The call to a manager will look like this: Manager.Instance
+	- The basic structure for a singleton is:
+		* Use static field and public property to refer to global instance
+		* In Awake method, either self-destruct or assign self a global instance of the manager
+	- Manager scripts, especially ones that persists across more then one scene, are better suited for this pattern
 	
 * Canvas 
 	- In order to create UI elements, we need a canvas objects

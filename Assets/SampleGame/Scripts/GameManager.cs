@@ -17,8 +17,12 @@ namespace SampleGame
         // reference to player
         private Objective _objective;
 
+        private static GameManager _instance;
+        public static GameManager Instance { get => _instance; }
+
         private bool _isGameOver;
         public bool IsGameOver { get { return _isGameOver; } }
+
 
         [SerializeField] private string nextLevelName;
         [SerializeField] private int nextLevelIndex;
@@ -27,9 +31,23 @@ namespace SampleGame
         // initialize references
         private void Awake()
         {
+            if (_instance != null)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                _instance = this;             
+            }
+
             _player = Object.FindObjectOfType<ThirdPersonCharacter>();
             _objective = Object.FindObjectOfType<Objective>();
             _goalEffect = Object.FindObjectOfType<GoalEffect>();
+        }
+
+        private void OnDestroy()
+        {
+            Destroy(gameObject);
         }
 
         // end the level

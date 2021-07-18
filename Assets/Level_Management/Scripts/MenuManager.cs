@@ -14,10 +14,33 @@ namespace LevelManagement
 
         private Stack<Menu> _menuStack = new Stack<Menu>();
 
+        private static MenuManager _instance;
+
+        public static MenuManager Instance { get => _instance; }
+
         private void Awake()
         {
-            InitializeMenus();
+            // In case the manager already initialized, delete the duplicate one
+            // Keep only one instance of the manager at all times
+            if (_instance != null)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                _instance = this;
+                InitializeMenus();
+            }          
         }
+
+        private void OnDestroy()
+        {
+            if (_instance == this)
+            {
+                _instance = null;
+            }
+        }
+
 
         void InitializeMenus()
         {
