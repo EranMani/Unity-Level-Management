@@ -20,17 +20,31 @@ namespace LevelManagement
 
         public void OnSettingsPressed()
         {
-
+            MenuManager menuManager = Object.FindObjectOfType<MenuManager>();
+            Menu settingsMenu = transform.parent.Find("Settings_Menu(Clone)").GetComponent<Menu>();
+            if (menuManager != null && settingsMenu != null)
+            {
+                menuManager.OpenMenu(settingsMenu);
+            }
         }
 
         public void OnCreditsPressed()
         {
-
+            MenuManager menuManager = Object.FindObjectOfType<MenuManager>();
+            Menu creditsMenu = transform.parent.Find("Credits_Screen(Clone)").GetComponent<Menu>();
+            if (menuManager != null && creditsMenu != null)
+            {
+                menuManager.OpenMenu(creditsMenu);
+            }                
         }
 
         public void OnBackPressed()
         {
-
+            MenuManager menuManager = Object.FindObjectOfType<MenuManager>();
+            if (menuManager != null)
+            {
+                menuManager.CloseMenu();
+            }
         }
     }
 }
