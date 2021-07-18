@@ -3,8 +3,20 @@
 	- Essentially we're just laying out some UI elements with buttons that help us jump from one menu to the next
 	- When we enable UI we disable the previous one and though some screens may look similar to one another or just have some of the same functionality 
 	  we will always have them set up as completely separate objects
-	- Create a custom based class menu class that will give all of the menus a certain level of uniformity
-	- Create a manager class called menu manager to manage these menus
+	- Create a custom based class menu class that will give all of the menus a certain level of uniformity. In this class we will add
+	  methods to run the desired scene or menu upon certain button click.
+	- Create a manager class called menu manager to manage these menus. The manager will instantiate the menus at runtime, while
+	  keeping only the main menu active and the others not.
+	- Since each menu prefab has its own custom class, we can assign its methods to the buttons and these connections will be saved
+	  with the prefab, since the class is part of the prefab as well (the canvas menu parent object). To keep the connections
+	  within a prefab, the scripts and methods must sit inside the prefab.
+	- Since each menu has a back button, we need to keep track of where we came from and we can do this by using a STACK, which
+	  is a collection that stores its elements last in first out. We will always start with one element, which is the main menu.
+	  If we click a button, a new menu gets added to the top of the stack and we disable the menus underneath. Clicking another button
+	  will repeat the process - another menu gets added to the top of the stack and we disable any menus below it.
+	  The stack always keeps track of where weve been at any time.
+	  If we hit the back button on the currently active menu, we pop off the top menu and then figure out which menu is revealed
+	  underneath, and then we enable whatever is left at the top of the stack.
 	
 * Canvas 
 	- In order to create UI elements, we need a canvas objects
