@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 390024786225307198}
   - component: {fileID: 390024786225307193}
   - component: {fileID: 390024786225307192}
-  - component: {fileID: 2544307248260670316}
+  - component: {fileID: 812197319485853260}
   m_Layer: 5
   m_Name: Settings_Menu
   m_TagString: Untagged
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2544307248260670316
+--- !u!114 &812197319485853260
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 390024786225307195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb05a44722bf9a74eb7de2f9a12995b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 90eafa2b9e06cad47a677d5eb0f045c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &390024786340481490
@@ -1384,8 +1384,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2544307248260670316}
-        m_TargetAssemblyTypeName: LevelManagement.Menu, Assembly-CSharp
+      - m_Target: {fileID: 812197319485853260}
+        m_TargetAssemblyTypeName: LevelManagement.SettingsMenu, Assembly-CSharp
         m_MethodName: OnBackPressed
         m_Mode: 1
         m_Arguments:

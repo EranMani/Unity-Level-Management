@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 8598077299028953902}
   - component: {fileID: 8598077299028953897}
   - component: {fileID: 8598077299028953896}
-  - component: {fileID: 8794069160294562321}
+  - component: {fileID: 1052543891119356758}
   m_Layer: 5
   m_Name: Credits_Screen
   m_TagString: Untagged
@@ -416,7 +416,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8794069160294562321
+--- !u!114 &1052543891119356758
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -425,7 +425,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8598077299028953899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb05a44722bf9a74eb7de2f9a12995b2, type: 3}
+  m_Script: {fileID: 11500000, guid: bace924686920ca4588a92f747d548d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8598077299036045001
@@ -792,8 +792,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8794069160294562321}
-        m_TargetAssemblyTypeName: LevelManagement.Menu, Assembly-CSharp
+      - m_Target: {fileID: 1052543891119356758}
+        m_TargetAssemblyTypeName: LevelManagement.CreditsScreen, Assembly-CSharp
         m_MethodName: OnBackPressed
         m_Mode: 1
         m_Arguments:

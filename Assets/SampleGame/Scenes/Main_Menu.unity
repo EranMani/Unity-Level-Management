@@ -166,9 +166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a228b644b3d2d2a4c95daab62d32609e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuPrefab: {fileID: -5296531002070734169, guid: d59e238fd23dbf34787bfe227e689f1a, type: 3}
-  settingsMenuPrefab: {fileID: 2544307248260670316, guid: 7a6a00e864f20af44aaa184915d25e4b, type: 3}
-  creditsScreenPrefab: {fileID: 8794069160294562321, guid: f16710cd16a07954c8b09ca20f34958c, type: 3}
+  mainMenuPrefab: {fileID: 4602837321562262745, guid: d59e238fd23dbf34787bfe227e689f1a, type: 3}
+  settingsMenuPrefab: {fileID: 812197319485853260, guid: 7a6a00e864f20af44aaa184915d25e4b, type: 3}
+  creditsScreenPrefab: {fileID: 1052543891119356758, guid: f16710cd16a07954c8b09ca20f34958c, type: 3}
   _menuParent: {fileID: 0}
 --- !u!1 &889956811
 GameObject:

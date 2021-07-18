@@ -30,6 +30,22 @@
 		* Use static field and public property to refer to global instance
 		* In Awake method, either self-destruct or assign self a global instance of the manager
 	- Manager scripts, especially ones that persists across more then one scene, are better suited for this pattern
+
+* Menu Subclasses 
+	- The goal is to get the menu set up as a singleton, but singleton permits only one instance of each class
+	- To fix the issue, the menus can be derived from a common base class and then give each menu screen its own unique subclass
+	- This will give the ability to assign unique methods to its corresponding menu subclass
+	- We don't instantiate any objects directly from the base Menu class when making a new menu screen
+	- The MENU class will be modified to be an abstract, which means that the class is not meant to be a standalone object
+	- To create a new menu, simply create a new subclass and use that subclass. New menu subclasses will simply use the menu
+	  base class as a template
+	- We can keep methods in our menu based class but they need to apply to any menu subclasses that derive from it.
+	  Anything else probably doesn't belong here.
+	- For example, the back button pressed is the only method which all menus have in common
+	- Anything commonly defined in the menu base class also applies to the subclasses (Inheritance)
+	- VIRTUAL Keyword: allows to make a special version of an back pressed functionality for any of the menu subclasses
+	- OVERRIDE Keyword: allows to change the method behaviour from the base class. The base class method must contain VIRTUAL
+	  keyword in order to override the method in the subclass
 	
 * Canvas 
 	- In order to create UI elements, we need a canvas objects
