@@ -9,6 +9,8 @@ namespace LevelManagement
         public MainMenu mainMenuPrefab;
         public SettingsMenu settingsMenuPrefab;
         public CreditsScreen creditsScreenPrefab;
+        public GameMenu gameMenuPrefab;
+        public PauseMenu pauseMenuPrefab;
 
         [SerializeField] private Transform _menuParent;
 
@@ -30,7 +32,9 @@ namespace LevelManagement
             {
                 _instance = this;
                 InitializeMenus();
-            }          
+                // Make the menu manager itself persistent through scenes
+                DontDestroyOnLoad(gameObject);
+            }         
         }
 
         private void OnDestroy()
@@ -50,7 +54,13 @@ namespace LevelManagement
                 _menuParent = menuParentObject.transform;
             }
 
-            Menu[] menuPrefabs = { mainMenuPrefab, settingsMenuPrefab, creditsScreenPrefab };
+            // Make the parent objects of the menus persistent throughout scenes
+            // This will also make the children of that parent persistent
+            // NOTE: Object is the base class for everything 
+            //Object.DontDestroyOnLoad(_menuParent);
+            DontDestroyOnLoad(_menuParent);
+
+            Menu[] menuPrefabs = { mainMenuPrefab, settingsMenuPrefab, creditsScreenPrefab, gameMenuPrefab, pauseMenuPrefab };
 
             foreach (Menu prefab in menuPrefabs)
             {

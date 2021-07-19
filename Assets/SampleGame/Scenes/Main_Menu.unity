@@ -151,8 +151,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1336703151}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &143828145
 MonoBehaviour:
@@ -169,6 +169,8 @@ MonoBehaviour:
   mainMenuPrefab: {fileID: 4602837321562262745, guid: d59e238fd23dbf34787bfe227e689f1a, type: 3}
   settingsMenuPrefab: {fileID: 812197319485853260, guid: 7a6a00e864f20af44aaa184915d25e4b, type: 3}
   creditsScreenPrefab: {fileID: 1052543891119356758, guid: f16710cd16a07954c8b09ca20f34958c, type: 3}
+  gameMenuPrefab: {fileID: 3651866141438340442, guid: 2923fceb3616cc54faeb241d69b02f9f, type: 3}
+  pauseMenuPrefab: {fileID: 4531857954400230718, guid: 18c1fa41868940244bea019ba3c4a2ea, type: 3}
   _menuParent: {fileID: 0}
 --- !u!1 &889956811
 GameObject:
@@ -309,9 +311,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1099173994}
-  - {fileID: 143828144}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1424657362
 GameObject:

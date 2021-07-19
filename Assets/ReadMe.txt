@@ -97,4 +97,12 @@
 * Switching menus
 	- One option is to use the unity events in onClick to create an event of set-active to activate or deactivate menus. This 
 	  option is not fit for scalable projects with great amount of screens
+
+
+* Dont destroy on load
+	- Loading a scene in unity by default destroys everything from the old scene and then loads up a whole new set of objects in the hierarchy
+	- In order to make the menus active during game play they need to exist in more than just the main menu scene.
+	  We need them to persist from the main menu
+	- When marking an object with don't destroy on load, it's made persistent across scenes. When loading a new scene, the object
+	  is not destroyed by default
 	  
