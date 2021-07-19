@@ -5,6 +5,34 @@ using SampleGame;
 
 namespace LevelManagement
 {
+    // Abstract: since we don't want to instantiate a standalone menu object
+    // Derive the T from the Menu class that we've already defined down here
+    // Limit the generic type T to this menu class
+    // We can constrain T to a class a struct or an interface. Constrain T to the same class we're actually defining
+    public abstract class Menu<T> : Menu where T : Menu<T>
+    {
+        private static T _instance;
+        public static T Instance { get => _instance; }
+
+        // Protected means outside objects can't see the method but derived classes can
+        protected virtual void Awake()
+        {
+            if (_instance != null)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                _instance = (T)this;
+            }
+        }
+
+        protected virtual void OnDestroy()
+        {
+            _instance = null;
+        }
+    }
+
     // Each menu must contain a canvas object 
     [RequireComponent(typeof(Canvas))]
     public abstract class Menu : MonoBehaviour

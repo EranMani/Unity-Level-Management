@@ -31,6 +31,23 @@
 		* In Awake method, either self-destruct or assign self a global instance of the manager
 	- Manager scripts, especially ones that persists across more then one scene, are better suited for this pattern
 
+* Generics
+	- Instead of defining a new method or class for each data type, we can define a method or class using a generic type
+	- Generic type method will look like this:
+		* public bool Compare<T>(T a, T b) { return a.Equals(b);  }
+	- We define the method using a standalone data type shown as a capital T and with the angle brackets. We substitue the data
+	  type for T and then pass in the parameters
+	- This allows to write one method or class using generics and then use that for a whole variety of data types,
+	  rather than having a separate snippet of code for each thing that you want to apply that to
+	- Generic data type can be limited by using the "where" keyword after the definition of the generic method
+		* must be a value type -> where T: struct
+		* must be a reference type -> where T: class
+		* must have a public parameterless constructor -> where T: new()
+		* must derive from specified base class -> where T: <base class>
+		* must implement specified interface -> where T: <interface>
+	- GetComponent() method for example is a generic method
+		* T GetComponent<T>() { }
+
 * Menu Subclasses 
 	- The goal is to get the menu set up as a singleton, but singleton permits only one instance of each class
 	- To fix the issue, the menus can be derived from a common base class and then give each menu screen its own unique subclass

@@ -5,38 +5,14 @@ using SampleGame;
 
 namespace LevelManagement
 {
-    public class MainMenu : Menu
+    // We get a singleton pattern automatically now because we're deriving from the generic menu 
+    public class MainMenu : Menu<MainMenu>
     {
-        private static MainMenu _instance;
-        public static MainMenu Instance { get => _instance; }
-
         public void OnPlayPressed()
         {
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.LoadNextLevel();
-            }
-        }
-
-        private void Awake()
-        {
-            // In case the manager already initialized, delete the duplicate one
-            // Keep only one instance of the manager at all times
-            if (_instance != null)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                _instance = this;
-            }
-        }
-
-        private void OnDestroy()
-        {
-            if (_instance == this)
-            {
-                _instance = null;
             }
         }
 
