@@ -11,6 +11,7 @@ namespace LevelManagement
         public CreditsScreen creditsScreenPrefab;
         public GameMenu gameMenuPrefab;
         public PauseMenu pauseMenuPrefab;
+        public WinScreen winScreenPrefab;
 
         [SerializeField] private Transform _menuParent;
 
@@ -60,7 +61,7 @@ namespace LevelManagement
             //Object.DontDestroyOnLoad(_menuParent);
             DontDestroyOnLoad(_menuParent);
 
-            Menu[] menuPrefabs = { mainMenuPrefab, settingsMenuPrefab, creditsScreenPrefab, gameMenuPrefab, pauseMenuPrefab };
+            Menu[] menuPrefabs = { mainMenuPrefab, settingsMenuPrefab, creditsScreenPrefab, gameMenuPrefab, pauseMenuPrefab, winScreenPrefab };
 
             foreach (Menu prefab in menuPrefabs)
             {
