@@ -31,6 +31,16 @@ namespace LevelManagement
         {
             _instance = null;
         }
+
+        public static void Open()
+        {
+            // Check if the selected menu instance and the menu manager are not null
+            if (MenuManager.Instance != null && Instance != null)
+            {
+                // Open the given menu instance
+                MenuManager.Instance.OpenMenu(Instance);
+            }
+        }
     }
 
     // Each menu must contain a canvas object 

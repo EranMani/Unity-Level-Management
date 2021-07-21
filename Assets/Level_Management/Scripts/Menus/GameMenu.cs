@@ -9,11 +9,7 @@ namespace LevelManagement
         public void OnPausePressed()
         {
             Time.timeScale = 0;
-
-            if (MenuManager.Instance != null && PauseMenu.Instance != null)
-            {
-                MenuManager.Instance.OpenMenu(PauseMenu.Instance);
-            }
+            PauseMenu.Open();
         }
 
     } 

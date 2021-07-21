@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityStandardAssets.Characters.ThirdPerson;
+using LevelManagement;
 
 namespace SampleGame
 {
@@ -26,6 +27,7 @@ namespace SampleGame
 
         [SerializeField] private string nextLevelName;
         [SerializeField] private int nextLevelIndex;
+        [SerializeField] private int mainMenuIndex = 0;
 
 
         // initialize references
@@ -102,6 +104,12 @@ namespace SampleGame
             // Scene index validation
             if (levelIndex >= 0 && levelIndex < SceneManager.sceneCountInBuildSettings)
             {
+                // In case the next level has the same index as the main menu, open the menu
+                if (levelIndex == mainMenuIndex)
+                {
+                    MainMenu.Open();
+                }
+
                 SceneManager.LoadScene(levelIndex);
             }
             else
@@ -133,7 +141,7 @@ namespace SampleGame
 
             int nextSceneIndex = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
 
-            SceneManager.LoadScene(nextSceneIndex);
+            LoadLevel(nextSceneIndex);
         }
 
         // check for the end game condition on each frame
