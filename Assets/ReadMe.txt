@@ -73,6 +73,9 @@
 	- Canvas scaler: will help us keep our layout intact as the target build changes from resolution or resolution. It works best if you choose a 
 	  reference resolution that will be closest to your final target build
 	- Keeping important stuff in the center of the screen is helpful when dealing with multiple target resolutions
+	- The canvas has a sort order for each, to select which canvas should be drawn on top and drawn below. High sort value will
+	  make the selected canvas to be at the top. The sort order should be adjusted in case there are more then one canvas there is
+	  running at the same time. Adjusting the canvas sort order will avoid visual issues
 	
 * Main Menu 
 	- Start by dividing the screen into header and body in order to arrange texts and buttons more effectively 
@@ -90,6 +93,8 @@
 	- Maskable Graphics: A base clas for both UI images and texts elements
 	- Each graphic has a canvas renderer attached which renders a graphical UI object contained within a canvas
 	- CrossFadeAlpha: tweens the alpha of the CanvasRenderer color associated with this Graphic
+	- While going from main menu to a level, we can create a quick faded screen with a text telling the user to get ready for 
+	  the level to begin, and then fade to the level scene
 
 * Arrangment 
 	 - Vertical layout group component
@@ -125,3 +130,6 @@
 						 so we will need to pass in THIS which relates to the menu manager object for example. By using the THIS keyword
 						 we say we are only interseted in the menu component, and so we need to cast this field value into a MENU type
 						 to get the prefab of the specific field
+
+* Coroutines
+	- Use when need to create a sequence of events or add some delay

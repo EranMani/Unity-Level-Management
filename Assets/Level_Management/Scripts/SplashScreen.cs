@@ -31,7 +31,7 @@ namespace LevelManagement
             _screenFader.Fadeoff();
             LevelLoader.LoadMainMenuLevel();
 
-            yield return new WaitForSeconds(_screenFader.FadeDuration);
+            yield return new WaitForSeconds(_screenFader.FadeOnDuration);
 
             Object.Destroy(gameObject);
         }

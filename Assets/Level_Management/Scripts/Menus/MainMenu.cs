@@ -8,9 +8,19 @@ namespace LevelManagement
     // We get a singleton pattern automatically now because we're deriving from the generic menu 
     public class MainMenu : Menu<MainMenu>
     {
+        [SerializeField] private float _playDelay = 0.5f;
+        [SerializeField] private TransitionFader startTransitionPrefab;
+
         public void OnPlayPressed()
         {
+            StartCoroutine(OnPlayPressedRoutine());
+        }
+
+        private IEnumerator OnPlayPressedRoutine()
+        {
+            TransitionFader.PlayTransition(startTransitionPrefab);
             LevelLoader.LoadNextLevel();
+            yield return new WaitForSeconds(_playDelay);
             GameMenu.Open();
         }
 
