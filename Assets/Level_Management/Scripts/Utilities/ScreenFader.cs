@@ -8,6 +8,7 @@ public class ScreenFader : MonoBehaviour
     [SerializeField] private float _solidAlpha = 1f;
     [SerializeField] private float _clearAlpha = 0f;
     [SerializeField] private float _fadeDuration = 2f;
+    public float FadeDuration { get { return _fadeDuration; } }
 
     // MaskableGraphic: a base class for all the UI elements that will be faded
     [SerializeField] private MaskableGraphic[] graphicsToFade;

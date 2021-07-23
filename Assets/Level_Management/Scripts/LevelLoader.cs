@@ -28,7 +28,7 @@ namespace LevelManagement
         public static void LoadLevel(int levelIndex)
         {
             // Scene index validation
-            if (levelIndex >= 0 && levelIndex < SceneManager.sceneCountInBuildSettings)
+            if (levelIndex >= mainMenuIndex && levelIndex < SceneManager.sceneCountInBuildSettings)
             {
                 // In case the next level has the same index as the main menu, open the menu
                 if (levelIndex == mainMenuIndex)
@@ -56,6 +56,7 @@ namespace LevelManagement
         public static void LoadNextLevel()
         {
             int nextSceneIndex = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
+            nextSceneIndex = Mathf.Clamp(nextSceneIndex, mainMenuIndex, nextSceneIndex);
             LoadLevel(nextSceneIndex);
         }
 
