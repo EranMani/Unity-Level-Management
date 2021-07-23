@@ -83,7 +83,8 @@
 * UI 
 	- Prevent UI from being interactable or be able to pass raycasts by creating a CANVAS GROUP component, attach it to the selected UI and remove
 	  checkbox under INTERACTABLE & BLOCK RAYCASTS. To make an UI clickable, use the CANVAS GROUP with the checkboxes selected
-
+	- Unity event system: responsible for processing and handling events in a Unity scene. A scene should only contain one EventSystem.
+	                      the event system is needed in order for UI elements to listen for the user input
 * Transition
 	- Set-up a fader which will apply to UI elements
 	- Maskable Graphics: A base clas for both UI images and texts elements

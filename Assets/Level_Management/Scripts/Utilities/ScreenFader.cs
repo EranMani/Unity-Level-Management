@@ -43,7 +43,7 @@ public class ScreenFader : MonoBehaviour
 
     public void FadeOn()
     {
-        SetAlpha(_solidAlpha);
+        SetAlpha(_clearAlpha);
         Fade(_solidAlpha, _fadeDuration);
     }
 }

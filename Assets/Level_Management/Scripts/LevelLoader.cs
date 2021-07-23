@@ -10,7 +10,7 @@ namespace LevelManagement
         // Note: static methods require the usage of static variables
         // A static variable will not show up in the Unity inspector
         // By making a variable - static - it becomes a globle variable which can be accessed only within the script
-        private static int mainMenuIndex = 0;
+        private static int mainMenuIndex = 1;
 
         public static void LoadLevel(string levelName)
         {
