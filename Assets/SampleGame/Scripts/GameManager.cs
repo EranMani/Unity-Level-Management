@@ -24,6 +24,8 @@ namespace SampleGame
         private bool _isGameOver;
         public bool IsGameOver { get { return _isGameOver; } }
 
+        [SerializeField] private TransitionFader endTransitionPrefab;
+
         // initialize references
         private void Awake()
         {
@@ -76,12 +78,10 @@ namespace SampleGame
             {
                 _isGameOver = true;
                 _goalEffect.PlayEffect();
-                WinScreen.Open();
+                StartCoroutine(OnLevelCompleteRoutine());
             }
         }
-
-        
-
+      
         // check for the end game condition on each frame
         private void Update()
         {
@@ -91,5 +91,14 @@ namespace SampleGame
             }
         }
 
+        private IEnumerator OnLevelCompleteRoutine()
+        {         
+            TransitionFader.PlayTransition(endTransitionPrefab);
+
+            // Ternary operator
+            float fadeDelay = (endTransitionPrefab != null) ? endTransitionPrefab.Delay + endTransitionPrefab.FadeOnDuration : 0f;
+            yield return new WaitForSeconds(fadeDelay);
+            WinScreen.Open();          
+        }
     }
 }

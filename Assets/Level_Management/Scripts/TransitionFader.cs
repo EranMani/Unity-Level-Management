@@ -7,6 +7,8 @@ public class TransitionFader : ScreenFader
     [SerializeField] private float _lifeTime = 1f;
     [SerializeField] private float _delay = 0.3f;
 
+    public float Delay { get { return _delay; } }
+
     protected void Awake()
     {
         // Clamp the life time of the transition by the sum of all actions related to fading
