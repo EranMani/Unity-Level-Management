@@ -105,4 +105,16 @@
 	  We need them to persist from the main menu
 	- When marking an object with don't destroy on load, it's made persistent across scenes. When loading a new scene, the object
 	  is not destroyed by default
-	  
+
+* System
+	- System.Reflection: a way to look at all the fields of the menu manager and figure out which ones were a menu prefabs
+	                     This will allow to automatically generate the array of the menu fields.
+						 Reflection works on a type, for example we need to get the system type menu manager
+						 GetFields() - returns information about each field in the system type. GetFields() is used in conjunction
+						               with "binding flags". These are special numeration that control how to search through the
+									   reflection. We can chain binding flags, using bitwise operator OR (|) to search for the proper
+									   menu fields
+						 GetValue()- We can read what is stored in each field by using the GetValue(). We always run this method on a specific object
+						 so we will need to pass in THIS which relates to the menu manager object for example. By using the THIS keyword
+						 we say we are only interseted in the menu component, and so we need to cast this field value into a MENU type
+						 to get the prefab of the specific field

@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Reflection;
 
 namespace LevelManagement
 {
     public class MenuManager : MonoBehaviour
     {
-        public MainMenu mainMenuPrefab;
-        public SettingsMenu settingsMenuPrefab;
-        public CreditsScreen creditsScreenPrefab;
-        public GameMenu gameMenuPrefab;
-        public PauseMenu pauseMenuPrefab;
-        public WinScreen winScreenPrefab;
+        [SerializeField] private MainMenu mainMenuPrefab;
+        [SerializeField] private SettingsMenu settingsMenuPrefab;
+        [SerializeField] private CreditsScreen creditsScreenPrefab;
+        [SerializeField] private GameMenu gameMenuPrefab;
+        [SerializeField] private PauseMenu pauseMenuPrefab;
+        [SerializeField] private WinScreen winScreenPrefab;
 
         [SerializeField] private Transform _menuParent;
 
@@ -58,13 +59,22 @@ namespace LevelManagement
             // Make the parent objects of the menus persistent throughout scenes
             // This will also make the children of that parent persistent
             // NOTE: Object is the base class for everything 
-            //Object.DontDestroyOnLoad(_menuParent);
             DontDestroyOnLoad(_menuParent);
 
-            Menu[] menuPrefabs = { mainMenuPrefab, settingsMenuPrefab, creditsScreenPrefab, gameMenuPrefab, pauseMenuPrefab, winScreenPrefab };
+            // Find out which fields contain menu prefabs to generate a collection of them at runtime
+            // Get the system type of THIS menu manager by assigning - this.GetType()
+            // By using GetFields, we get information about each field
+            // BindingFlags will allow to search for the proper menu fields. These fields are called as an instance,
+            // they are private (not public) and declared within the menu manager instead of getting fields from inheritance for example
+            // The fields should only be specific to the menu manager, and not mono behaviour
+            BindingFlags myFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly;
+            FieldInfo[] fields = this.GetType().GetFields(myFlags);
 
-            foreach (Menu prefab in menuPrefabs)
+            foreach (FieldInfo field in fields)
             {
+                // Get the prefab which is stored in the field. Since we get the MENU component, we need to cast the result to MENU
+                Menu prefab = field.GetValue(this) as Menu;
+
                 if (prefab != null)
                 {
                     Menu menuInstance = Instantiate(prefab, _menuParent);
