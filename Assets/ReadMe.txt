@@ -83,7 +83,13 @@
 * UI 
 	- Prevent UI from being interactable or be able to pass raycasts by creating a CANVAS GROUP component, attach it to the selected UI and remove
 	  checkbox under INTERACTABLE & BLOCK RAYCASTS. To make an UI clickable, use the CANVAS GROUP with the checkboxes selected
-	  
+
+* Transition
+	- Set-up a fader which will apply to UI elements
+	- Maskable Graphics: A base clas for both UI images and texts elements
+	- Each graphic has a canvas renderer attached which renders a graphical UI object contained within a canvas
+	- CrossFadeAlpha: tweens the alpha of the CanvasRenderer color associated with this Graphic
+
 * Arrangment 
 	 - Vertical layout group component
 	 
