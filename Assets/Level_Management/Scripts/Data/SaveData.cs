@@ -7,6 +7,8 @@ namespace LevelManagement.Data
     [Serializable]
     public class SaveData 
     {
+        // ** Make sure that there is a public class variable that represents what you want to save ** //
+
         public string playerName;
         private readonly string defaultPlayerName = "Player";
 
