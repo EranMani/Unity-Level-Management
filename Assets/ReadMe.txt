@@ -60,6 +60,24 @@
 	- Saving prefs is a slow operation, so its to time the saving during a transition or a point in the game where the user
 	  notice a small delay. Another example is jumping between menus. In project case, the prefs related to the menu
 	  will be saved when pressing the back button
+	- The disadvantages of using the player pref are:
+		* It can only store int, float and string data types. It can't store collections such as lists or arrays. For example a
+		  collection of player progress which shows which levels he already unlocked. This can not be saved in the player prefs
+		* Security - player prefs store all of its data as plain text file without any encryption and its easy for anyone to hack
+		             the file. On a standalone windows build, player prefs can be found in the registry and can be moded there.
+					 For example, the player can hack the player prefs file and change the amount of gems he has to any value
+					 he wants and that will be applied into the game. This will destroy the whole monetization model
+
+* MVC (model view controller)
+	- Breaks our software into three different parts
+	- The -model- represents the part of our program that contains all of the data, like player collectables amount, volumes etc
+	- The -view- is the user interface, like menus and screens that thep layer uses to interact with in the application. The view
+	  will be updated according to how the model (game data) changes
+	- The -controller- will hold all of the management scripts that we will use to modify the model, like game manager or any other
+	  script that control the flow of the actual game that fall outside of the view
+	- The user see the view and apply input to the device by a controller such as mouse, keyboard etc. The input goes to the controller
+	  portion of the application which in turn manipulates the data as the model data changes. Then the view updates and the cycle 
+	  is repeated
 
 * Menu Subclasses 
 	- The goal is to get the menu set up as a singleton, but singleton permits only one instance of each class
