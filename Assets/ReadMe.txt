@@ -88,6 +88,11 @@
 	  checkbox under INTERACTABLE & BLOCK RAYCASTS. To make an UI clickable, use the CANVAS GROUP with the checkboxes selected
 	- Unity event system: responsible for processing and handling events in a Unity scene. A scene should only contain one EventSystem.
 	                      the event system is needed in order for UI elements to listen for the user input
+	- When connecting methods into onClick or onValue events we have the option to load the method as static or dynamic, which means 
+	  that as static we will pass an argument only once and as dynamic the argument will be passed each time the slider value is changed
+	  for example. To make that event call dynamic, we need to pass an argument in the method that will be attached to the event
+	  
+
 * Transition
 	- Set-up a fader which will apply to UI elements
 	- Maskable Graphics: A base clas for both UI images and texts elements
