@@ -54,6 +54,10 @@ namespace LevelManagement
         public override void OnBackPressed()
         {
             base.OnBackPressed();
+            if (_dataManager != null)
+            {
+                _dataManager.Save();
+            }
         }
 
         public void LoadData()
@@ -62,6 +66,8 @@ namespace LevelManagement
             {
                 return;
             }
+
+            _dataManager.Load();
 
             _masterVolumeSlider.value = _dataManager.MasterVolume;
             _sfxVolumeSlider.value = _dataManager.SfxVolume;

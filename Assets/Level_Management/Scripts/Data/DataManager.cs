@@ -10,6 +10,7 @@ namespace LevelManagement.Data
     public class DataManager : MonoBehaviour
     {
         private SaveData _saveData;
+        private JsonSaver _jsonSaver;
 
         // Expose saved data from SaveData package to objects in scene to GET and SET values
         public float MasterVolume { 
@@ -33,6 +34,19 @@ namespace LevelManagement.Data
         {
             // Initialize default data
             _saveData = new SaveData();
+
+            // Initialize JSON saver class
+            _jsonSaver = new JsonSaver();
+        }
+
+        public void Save()
+        {
+            _jsonSaver.Save(_saveData);
+        }
+
+        public void Load()
+        {
+            _jsonSaver.Load(_saveData);
         }
     } 
 

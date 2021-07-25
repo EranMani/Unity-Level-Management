@@ -68,6 +68,16 @@
 					 For example, the player can hack the player prefs file and change the amount of gems he has to any value
 					 he wants and that will be applied into the game. This will destroy the whole monetization model
 
+* JSON Utility
+	- Data is a key-value pair with keys being strings
+	- It can have a lot of basic data types like numbers, strings and complex structures like arrays and lists
+	- In unity, the utility can convert all of the public fields (only public) of an object in a JSON formatted string. The object needs to be
+	  either a mono-behaviour, basic class or a struct marked with system.serializable attribute
+	- Application.persistentDataPath: when reading or writing the file we will need the file name + the full path to disk. That
+	                                  path is a bit different for each operating system. By using the method, it provides a solution
+									  to determine where to read and write the files, no matter what platform is being used
+	- System.IO namespace: provides methods to read and write file streams and can save, load or delete data
+
 * MVC (model view controller)
 	- Breaks our software into three different parts
 	- The -model- represents the part of our program that contains all of the data, like player collectables amount, volumes etc
