@@ -48,6 +48,19 @@
 	- GetComponent() method for example is a generic method
 		* T GetComponent<T>() { }
 
+* Player Prefs
+	- Stores its data in a fashion similar to a hash table or a dictionary
+	- Each entry in our player proof storage consists of a key value pair and we can store three different types of data - 
+	  integers, floats or strings
+	- These can be used to store a variety of game data, such as  player's username, version number of app and other stuff
+	  like sound and music volumes
+	- For each data we store, we need to specify a key. The key is always a string
+	- We don't need the index number to retrieve the data, we just need the key and that gives us quick random access to the information
+	- The methods allows are to set and get, save and delete
+	- Saving prefs is a slow operation, so its to time the saving during a transition or a point in the game where the user
+	  notice a small delay. Another example is jumping between menus. In project case, the prefs related to the menu
+	  will be saved when pressing the back button
+
 * Menu Subclasses 
 	- The goal is to get the menu set up as a singleton, but singleton permits only one instance of each class
 	- To fix the issue, the menus can be derived from a common base class and then give each menu screen its own unique subclass
