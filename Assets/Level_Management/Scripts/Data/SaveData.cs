@@ -16,6 +16,9 @@ namespace LevelManagement.Data
         public float sfxVolume;
         public float musicVolume;
 
+        // Store the large hexadecimal string 
+        public string hasValue;
+
         // A constructor to initialize default data
         public SaveData()
         {
@@ -23,6 +26,7 @@ namespace LevelManagement.Data
             masterVolume = 0f;
             sfxVolume = 0f;
             musicVolume = 0f;
+            hasValue = String.Empty;
         }
     } 
 }

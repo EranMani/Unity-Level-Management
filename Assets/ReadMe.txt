@@ -78,6 +78,17 @@
 									  to determine where to read and write the files, no matter what platform is being used
 	- System.IO namespace: provides methods to read and write file streams and can save, load or delete data
 
+* Encryption 
+	- A basic way to protect data is with a hash function. It is a function that can map one piece of data that's any size to another
+	  piece of data that has a fixed size
+	- A hash function intended for cryptography is what called a one way function. It's relatively easy to calculate the result 
+	  of the function but it's very hard to take that output and then reverse the process to figure out the input. The resulting
+	  hash is in hexadecimal
+	- In this project, we will use SHA-256 hashing function. SHA stands for Secure Hash Algorithm
+	- Before loading the data, the application need to compare between saved hash data and the hash that the application is recomputing 
+	  when tries to hash the data again. If the hashes are different, then the save file has been modified and the application should not
+	  load the saved data
+
 * MVC (model view controller)
 	- Breaks our software into three different parts
 	- The -model- represents the part of our program that contains all of the data, like player collectables amount, volumes etc
