@@ -172,6 +172,7 @@ MonoBehaviour:
   gameMenuPrefab: {fileID: 3651866141438340442, guid: 2923fceb3616cc54faeb241d69b02f9f, type: 3}
   pauseMenuPrefab: {fileID: 4531857954400230718, guid: 18c1fa41868940244bea019ba3c4a2ea, type: 3}
   winScreenPrefab: {fileID: 2998539853233739710, guid: a5476f9b69872a041bfe1033974c30d6, type: 3}
+  levelSelectMenuPrefab: {fileID: 7747631853407808007, guid: 73232b3ad83fd364f9c36d50adb1fd86, type: 3}
   _menuParent: {fileID: 0}
 --- !u!1 &889956811
 GameObject:

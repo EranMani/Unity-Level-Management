@@ -11,9 +11,6 @@ namespace LevelManagement
     public class MainMenu : Menu<MainMenu>
     {
         private DataManager _dataManager;
-
-        [SerializeField] private float _playDelay = 0.5f;
-        [SerializeField] private TransitionFader startTransitionPrefab;
         [SerializeField] private InputField _playerNameInputField;
 
         protected override void Awake()
@@ -29,16 +26,18 @@ namespace LevelManagement
 
         public void OnPlayPressed()
         {
-            StartCoroutine(OnPlayPressedRoutine());
+            LevelSelectorMenu.Open();
+            //StartCoroutine(OnPlayPressedRoutine());
         }
 
+        /*
         private IEnumerator OnPlayPressedRoutine()
         {
             TransitionFader.PlayTransition(startTransitionPrefab);
             LevelLoader.LoadNextLevel();
             yield return new WaitForSeconds(_playDelay);
             GameMenu.Open();
-        }
+        }*/
 
         public void OnSettingsPressed()
         {

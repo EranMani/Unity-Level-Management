@@ -13,6 +13,7 @@ namespace LevelManagement
         [SerializeField] private GameMenu gameMenuPrefab;
         [SerializeField] private PauseMenu pauseMenuPrefab;
         [SerializeField] private WinScreen winScreenPrefab;
+        [SerializeField] private LevelSelectorMenu levelSelectMenuPrefab;
 
         [SerializeField] private Transform _menuParent;
 

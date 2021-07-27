@@ -14,6 +14,9 @@ namespace LevelManagement
         [SerializeField] protected Text _nameText;
         [SerializeField] protected Text _descriptionText;
         [SerializeField] protected Image _previewImage;
+
+        [SerializeField] private float _playDelay = 0.5f;
+        [SerializeField] private TransitionFader startTransitionPrefab;
         #endregion
 
         #region PROTECTED
@@ -59,6 +62,20 @@ namespace LevelManagement
         {
             _missionSelector.DecrementIndex();
             UpdateInfo();
+        }
+
+        public void OnPlayPressed()
+        {
+            StartCoroutine(PlayMissionRoutine(_currentMission?.SceneName));
+        }
+
+       
+        private IEnumerator PlayMissionRoutine(string sceneName)
+        {
+            TransitionFader.PlayTransition(startTransitionPrefab);
+            LevelLoader.LoadLevel(sceneName);
+            yield return new WaitForSeconds(_playDelay);
+            GameMenu.Open();
         }
     }
 
