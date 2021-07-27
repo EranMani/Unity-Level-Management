@@ -190,3 +190,14 @@
 
 * Coroutines
 	- Use when need to create a sequence of events or add some delay
+
+* Scriptable Object
+	- Special Unity entity designed to hold data like mono-behavior or game object. It inherits from unity engine.object 
+	- Mono behavior and game object can store data as well, they come with a lot of extra stuff. The scriptable object is much
+	  lighter because it avoids using all that extra stuff
+	- It can reduce memory usage
+	- It is a data container for editor session
+	- It stores data as .asset file for runtime
+	- Because the asset lives in the project, it can be shared globally by any game objects
+	- In order to see it in the inspector, we need to serialize it
+	- Use this for storing data that is not expected to change very much
