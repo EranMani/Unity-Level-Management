@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/SampleGame/Scenes/SplashScreen.unity
+    guid: 2b61edbc4b2c0c343af10f9eef8cc6a2
+  - enabled: 1
+    path: Assets/SampleGame/Scenes/Main_Menu.unity
+    guid: 8ed093105a91a2d488513ac87e17222d
+  - enabled: 1
+    path: Assets/SampleGame/Scenes/Level1.unity
+    guid: 07761bc9b97014553a6062c33a3cac39
+  - enabled: 1
+    path: Assets/SampleGame/Scenes/Level2.unity
+    guid: 11bbb0426e526480aac42f72af1de7d1
+  - enabled: 1
+    path: Assets/SampleGame/Scenes/Level3.unity
+    guid: 83d7e1b40fcd0f3439f665b2812c83b4
   m_configObjects: {}
